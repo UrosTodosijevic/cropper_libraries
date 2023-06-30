@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/services.dart';
@@ -74,14 +73,6 @@ class MethodChannelImageCropper extends ImageCropperPlatform {
     assert(maxWidth == null || maxWidth > 0);
     assert(maxHeight == null || maxHeight > 0);
     assert(compressQuality >= 0 && compressQuality <= 100);
-
-    log("- - - - - - - - - - Primljene vrednosti u cropImage() funkciji");
-    String list = "[";
-    for(var vr in aspectRatioPresets) {
-      list += "${aspectRatioPresetName(vr)}, ";
-    }
-    list += "]";
-    log(list);
 
     final arguments = <String, dynamic>{
       'source_path': sourcePath,
