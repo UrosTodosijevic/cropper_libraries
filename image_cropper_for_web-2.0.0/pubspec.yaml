@@ -14,7 +14,9 @@ dependencies:
     sdk: flutter
   
   image_cropper_platform_interface: #^4.0.0
-    path: ../image_cropper_platform_interface-4.0.0
+    git:
+      url: https://github.com/UrosTodosijevic/cropper_libraries.git
+      path: image_cropper_platform_interface-4.0.0
 
   js: ^0.6.3
 
