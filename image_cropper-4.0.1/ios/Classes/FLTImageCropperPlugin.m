@@ -1,5 +1,5 @@
 #import "FLTImageCropperPlugin.h"
-#import <TOCropViewController/TOCropViewController.h>
+#import <TOCropViewControllerLandscapePreset/TOCropViewController.h>
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <Photos/Photos.h>
@@ -42,7 +42,6 @@
       NSArray *aspectRatioPresets = call.arguments[@"aspect_ratio_presets"];
       NSNumber *compressQuality = call.arguments[@"compress_quality"];
       NSString *compressFormat = call.arguments[@"compress_format"];
-      NSLog(@"- - - - - - - - - - My string: %@", (NSArray *)aspectRatioPresets);
       
       UIImage *image = [UIImage imageWithContentsOfFile:sourcePath];
       TOCropViewController *cropViewController;
@@ -73,18 +72,11 @@
           }
       }
       cropViewController.allowedAspectRatios = allowedAspectRatios;
-      NSLog(@"- - - - - - - - - - JA DOSAO SLEDECE 2 LINIJE");
-      //cropViewController.aspectRatioLockDimensionSwapEnabled = NO;
-      //cropViewController.aspectRatioLockEnabled = YES;
-      NSLog(@"- - - - - - - - - - aspectRatioLockEnabled: %@", (bool *)cropViewController.aspectRatioLockEnabled);
-      NSLog(@"- - - - - - - - - - aspectRatioLockDimensionSwapEnabled: %@", (bool *)cropViewController.aspectRatioLockDimensionSwapEnabled);
-      NSLog(@"- - - - - - - - - - IZNAD");
 
       if (ratioX != (id)[NSNull null] && ratioY != (id)[NSNull null]) {
           cropViewController.customAspectRatio = CGSizeMake([ratioX floatValue], [ratioY floatValue]);
           cropViewController.resetAspectRatioEnabled = NO;
           cropViewController.aspectRatioPickerButtonHidden = YES;
-          NSLog(@"- - - - - - - - - - OVDE SAM MENJAO, BILO JE -YES-");
           cropViewController.aspectRatioLockDimensionSwapEnabled = YES;
           cropViewController.aspectRatioLockEnabled = YES;
       }
@@ -132,9 +124,6 @@
     NSString *cancelButtonTitle = options[@"ios.cancel_button_title"];
     NSNumber *alwaysShowLandscapePresets = options[@"ios.always_show_landscape_presets"];
 
-    NSLog(@"- - - - - - - - - - Ispod aspectRatioLockEnabled: %@", (NSNumber *)aspectRatioLockEnabled);
-    NSLog(@"- - - - - - - - - - Ispod aspectRatioLockDimensionSwapEnabled: %@", (NSNumber *)aspectRatioLockDimensionSwapEnabled);
-    
     if (minimumAspectRatio && [minimumAspectRatio isKindOfClass:[NSNumber class]]) {
         controller.minimumAspectRatio = minimumAspectRatio.floatValue;
     }
