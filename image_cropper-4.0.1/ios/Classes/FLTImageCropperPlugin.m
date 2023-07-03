@@ -123,6 +123,7 @@
     NSString *doneButtonTitle = options[@"ios.done_button_title"];
     NSString *cancelButtonTitle = options[@"ios.cancel_button_title"];
     NSNumber *alwaysShowLandscapePresets = options[@"ios.always_show_landscape_presets"];
+    NSNumber *useAlternativeTitleFor4x3Preset = options[@"ios.use_alternative_title_for_4x3_preset"];
 
     if (minimumAspectRatio && [minimumAspectRatio isKindOfClass:[NSNumber class]]) {
         controller.minimumAspectRatio = minimumAspectRatio.floatValue;
@@ -174,6 +175,9 @@
     }
     if (alwaysShowLandscapePresets && [alwaysShowLandscapePresets isKindOfClass:[NSNumber class]]) {
         controller.alwaysShowLandscapePresets = alwaysShowLandscapePresets.boolValue;
+    }
+    if (useAlternativeTitleFor4x3Preset && [useAlternativeTitleFor4x3Preset isKindOfClass:[NSNumber class]]) {
+        controller.useAlternativeTitleFor4x3Preset = useAlternativeTitleFor4x3Preset.boolValue;
     }
 }
 

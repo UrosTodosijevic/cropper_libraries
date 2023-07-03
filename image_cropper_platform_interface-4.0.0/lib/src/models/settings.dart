@@ -298,6 +298,9 @@ class IOSUiSettings extends PlatformUiSettings {
   /// Used to force landscape values of [CropAspectRatioPreset]s
   final bool alwaysShowLandscapePresets;
 
+  /// Used to display alternative title for [4x3] preset -> "Landscape". [alwaysShowLandscapePresets] must be [true] for this parameter to have effect.
+  final bool useAlternativeTitleFor4x3Preset;
+
   IOSUiSettings({
     this.minimumAspectRatio,
     this.rectX,
@@ -318,6 +321,7 @@ class IOSUiSettings extends PlatformUiSettings {
     this.doneButtonTitle,
     this.cancelButtonTitle,
     this.alwaysShowLandscapePresets = false,
+    this.useAlternativeTitleFor4x3Preset = false,
   });
 
   @override
@@ -344,6 +348,7 @@ class IOSUiSettings extends PlatformUiSettings {
         'ios.done_button_title': this.doneButtonTitle,
         'ios.cancel_button_title': this.cancelButtonTitle,
         'ios.always_show_landscape_presets': this.alwaysShowLandscapePresets,
+        'ios.use_alternative_title_for_4x3_preset': this.useAlternativeTitleFor4x3Preset,
       };
 }
 
